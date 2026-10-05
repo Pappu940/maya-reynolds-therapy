@@ -1,0 +1,135 @@
+@import "tailwindcss";
+
+/*
+  THEME TOKENS — the whole palette lives here.
+  Swap these values to re-theme the entire site.
+  Palette: deep teal-slate, soft sage mist and a warm brick accent,
+  drawn from the sea-and-sage photography and the office's brick wall.
+*/
+:root {
+  --primary: #2c4a4e;       /* deep teal-slate – headings, buttons, footer */
+  --primary-deep: #1b3033;  /* deeper teal    – hover / dark bands        */
+  --secondary: #e2e9e4;     /* sage mist      – soft panels, borders      */
+  --accent: #a9503a;        /* office brick   – script words, links, CTAs */
+  --linen: #f6f4f1;         /* warm linen     – page background           */
+  --ink: #1d2b36;           /* body text                                  */
+  --muted: #55646f;         /* secondary text (AA on linen & white)       */
+}
+
+@theme inline {
+  --color-primary: var(--primary);
+  --color-primary-deep: var(--primary-deep);
+  --color-secondary: var(--secondary);
+  --color-accent: var(--accent);
+  --color-linen: var(--linen);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+
+  --font-serif: "Cormorant Garamond", "Cormorant", Georgia, serif;
+  --font-script: "Mrs Saint Delafield", "Snell Roundhand", cursive;
+  --font-sans: "Mulish", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 6rem;
+}
+
+body {
+  background: var(--linen);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-weight: 300;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ——— Reusable type styles (match the template's look) ——— */
+.eyebrow {
+  font-size: 0.78rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-weight: 400;
+  color: var(--ink);
+  line-height: 1.9;
+}
+
+.h-display {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  line-height: 1.1;
+  color: var(--primary);
+  letter-spacing: -0.005em;
+}
+
+.script {
+  font-family: var(--font-script);
+  color: var(--accent);
+  font-weight: 400;
+  white-space: nowrap;
+  letter-spacing: 0;
+}
+
+.body-copy {
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.85;
+  color: var(--muted);
+}
+
+.link-underline {
+  font-size: 0.78rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: var(--primary);
+  border-bottom: 1px solid var(--primary);
+  padding-bottom: 3px;
+  transition: color 0.2s, border-color 0.2s;
+}
+.link-underline:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.btn-pill {
+  display: inline-block;
+  font-size: 0.74rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: var(--primary);
+  border: 1px solid var(--primary);
+  border-radius: 999px;
+  padding: 0.7rem 1.6rem;
+  transition: background 0.2s, color 0.2s;
+}
+.btn-pill:hover {
+  background: var(--primary);
+  color: #fff;
+}
+
+.btn-solid {
+  display: inline-block;
+  font-size: 0.74rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: #fff;
+  background: var(--primary);
+  border-radius: 999px;
+  padding: 0.9rem 2rem;
+  transition: background 0.2s;
+}
+.btn-solid:hover {
+  background: var(--accent);
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { transition: none !important; }
+}
